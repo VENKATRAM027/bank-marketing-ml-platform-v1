@@ -19,7 +19,8 @@ with st.form("client Form"):
 
     if submitted:
         #convert INR back to the dataset's original base scale
-        model_balance = balance / 85
+        USD_TO_INR = 85
+        model_balance = balance / USD_TO_INR
 
         payload = {
             "age": age, 
