@@ -1,0 +1,11 @@
+fastapi
+scikit-learn
+ucimlrepo
+joblib
+pandas
+uvicorn 
+streamlit
+requests
+xgboost
+mlflow
+pydantic
