@@ -1,0 +1,23 @@
+artifact_path: file:E:/New folder/ML-project-bank-router-ai/mlruns/1/models/m-7f99c80d59334f2581d55e8591d6f759/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.9
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.15.2
+model_id: m-7f99c80d59334f2581d55e8591d6f759
+model_size_bytes: 1012
+model_uuid: m-7f99c80d59334f2581d55e8591d6f759
+prompts: null
+run_id: f95190a49da241058f59a278d1bdb0fe
+utc_time_created: '2026-09-01 15:17:40.225829'
