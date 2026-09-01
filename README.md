@@ -2,7 +2,7 @@
 
 An end-to-end machine learning platform for predicting whether a bank customer is likely to subscribe to a term deposit, built using the UCI Bank Marketing dataset.
 
-This V1 project focuses on demonstrating the progression from classical machine learning fundamentals to a deployable ML application: preprocessing, class balancing, model comparison, hyperparameter tuning, experiment tracking, model selection, API inference, containerization, and a user-facing interface.
+This V1 project demonstrates the progression from classical machine learning fundamentals to a deployable ML application: preprocessing, class balancing, model comparison, hyperparameter tuning, experiment tracking, model selection, API inference, containerization, and a user-facing interface.
 
 ## Project Overview
 
@@ -80,6 +80,8 @@ UCI Bank Marketing Dataset
 14. Serve predictions through FastAPI.
 15. Provide a Streamlit frontend for interactive predictions.
 
+> **V1 note:** In this version, scaling and SMOTE are applied before `RandomizedSearchCV`. V2 is planned to move preprocessing and SMOTE inside the cross-validation pipeline to make the evaluation methodology more robust.
+
 ## Models Evaluated
 
 | Model | Tuning / Regularization |
@@ -118,13 +120,16 @@ Champion ML Model
 
 ### Docker
 
-The project includes Docker configurations for containerized execution of the ML/API components and the Streamlit application.
+The repository includes separate Dockerfiles for the FastAPI service and Streamlit application:
+
+- `Dockerfile.api`
+- `Dockerfile.streamlit`
 
 ## Currency Handling
 
 The training dataset uses its original balance scale, while the Streamlit interface is designed for Indian users and accepts balance in INR.
 
-Before inference, the application converts the INR input to the approximate scale used by the training data using a configurable conversion assumption. This conversion is an application-layer input transformation and is not part of the model training process.
+Before inference, the application converts the INR input to the approximate scale used by the training data using a fixed conversion assumption (`85` INR per dataset currency unit in V1). This conversion is an application-layer input transformation and is not part of the model training process.
 
 ## Project Structure
 
@@ -139,7 +144,7 @@ bank-marketing-ml-platform-v1/
 ├── models/
 │   └── best_model.pkl
 ├── Dockerfile.api
-├── Dockerfile.app
+├── Dockerfile.streamlit
 ├── requirements.txt
 ├── .gitignore
 └── README.md
